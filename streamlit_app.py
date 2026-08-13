@@ -118,13 +118,13 @@ with st.sidebar:
             "product_id": pid if pid else None,
         })
 
-    predict_clicked = st.button("🚀 Predict Intent", type="primary", use_container_width=True)
+    predict_clicked = st.button(" Predict Intent", type="primary", use_container_width=True)
 
 if predict_clicked:
     with st.spinner("Running inference..."):
         result = predict_intent(events, past_orders, avg_order_value)
 
-    st.subheader("📊 Prediction Results")
+    st.subheader(" Prediction Results")
     c1, c2, c3, c4, c5 = st.columns(5)
 
     intent_class = result["intent_class"]
@@ -151,9 +151,9 @@ if predict_clicked:
         st.success(f"**Explanation:** {result['explanation']}")
 
     if result["discount_depth_pct"] > 0:
-        st.warning(f"💰 Offer **{result['discount_depth_pct']:.0f}% discount** to maximize conversion")
+        st.warning(f" Offer **{result['discount_depth_pct']:.0f}% discount** to maximize conversion")
     else:
-        st.success("💰 No discount needed — user is likely to convert organically")
+        st.success(" No discount needed — user is likely to convert organically")
 
 st.divider()
 st.subheader("📐 Production Architecture")
